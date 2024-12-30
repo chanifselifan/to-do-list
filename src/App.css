@@ -1,0 +1,1075 @@
+:root {
+  --primary-color: #4A4AFF;    /* Biru terang */
+  --secondary-color: #2D2D69;  /* Biru gelap */
+  --accent-color: #FF4757;     /* Merah untuk aksen */
+  --bg-color: #1A1A2E;        /* Background sangat gelap dengan hint biru */
+  --card-bg: #22223A;         /* Card background gelap */
+  --text-primary: #FFFFFF;    /* Putih untuk teks utama */
+  --text-secondary: #A0A0B3;   /* Abu-abu terang untuk teks sekunder */
+  
+  /* Priority Colors */
+  --priority-low: #00B894;     /* Hijau mint */
+  --priority-medium: #FDCB6E;  /* Kuning */
+  --priority-high: #FF4757;    /* Merah */
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header Section */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.greeting {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.greeting img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.greeting-text h1 {
+  color: var(--text-primary);
+  font-size: 24px;
+  margin: 0;
+}
+
+.greeting-text p {
+  color: var(--text-secondary);
+  margin: 5px 0 0 0;
+}
+
+/* Todo Section */
+.todo-section {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.todo-header h2 {
+  color: var(--text-primary);
+  font-size: 20px;
+  margin: 0;
+}
+
+/* Todo Form */
+.todo-form {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid #3F3F60;
+  border-radius: 12px;
+  font-size: 16px;
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+  background-color: #2A2A45;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.todo-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.todo-form button {
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.todo-form button:hover {
+  transform: translateY(-2px);
+}
+
+/* Todo List */
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #2A2A45;
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 4px solid transparent;
+}
+
+.todo-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.todo-checkbox {
+  width: 22px;
+  height: 22px;
+  margin-right: 15px;
+  border: 2px solid #3F3F60;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.todo-checkbox:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.todo-text {
+  flex: 1;
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.todo-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-delete {
+  padding: 8px;
+  background: none;
+  border: none;
+  color: #6C6C8B;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.todo-delete:hover {
+  color: var(--accent-color);
+}
+
+/* Time Display */
+.time-display {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 20px;
+  }
+  
+  .todo-section {
+    padding: 20px;
+  }
+}
+
+/* Update priority indicators */
+.todo-item[data-priority="low"] {
+  border-left-color: var(--priority-low);
+}
+
+.todo-item[data-priority="medium"] {
+  border-left-color: var(--priority-medium);
+}
+
+.todo-item[data-priority="high"] {
+  border-left-color: var(--priority-high);
+}
+
+/* Update form styles */
+.todo-form button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.todo-form button:hover {
+  background-color: #3939CC; /* Sedikit lebih gelap */
+}
+
+.todo-input:focus {
+  border-color: var(--primary-color);
+}
+
+/* Update select styles */
+select {
+  padding: 8px 12px;
+  border: 2px solid #3F3F60;
+  border-radius: 8px;
+  background-color: #2A2A45;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Priority badges */
+.priority-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+.priority-badge.low {
+  background-color: rgba(0, 184, 148, 0.2);
+  color: #00B894;
+}
+
+.priority-badge.medium {
+  background-color: rgba(253, 203, 110, 0.2);
+  color: #FDCB6E;
+}
+
+.priority-badge.high {
+  background-color: rgba(255, 71, 87, 0.2);
+  color: #FF4757;
+}
+
+/* Update checkbox style */
+.todo-checkbox {
+  border-color: #3F3F60;
+  background-color: transparent;
+}
+
+.todo-checkbox:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Update delete button */
+.todo-delete {
+  color: #6C6C8B;
+}
+
+.todo-delete:hover {
+  color: var(--accent-color);
+}
+
+/* Update completed task style */
+.todo-item.completed {
+  background-color: rgba(74, 74, 255, 0.1);
+}
+
+.todo-item.completed .todo-text {
+  color: var(--text-secondary);
+}
+
+/* Tambahkan styles berikut */
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.completed-section {
+  opacity: 0.8;
+}
+
+.completed-section .todo-header h2 {
+  color: var(--text-secondary);
+}
+
+.todo-item.completed {
+  background-color: rgba(74, 74, 255, 0.05);
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.todo-item.completed .priority-badge {
+  opacity: 0.6;
+}
+
+/* Form controls */
+.form-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.date-input {
+  padding: 8px 12px;
+  border: 2px solid #3F3F60;
+  border-radius: 8px;
+  background-color: #2A2A45;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.date-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Todo meta information */
+.todo-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.todo-date {
+  color: var(--text-secondary);
+}
+
+.overdue-badge {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.todo-item.overdue {
+  border-left-color: var(--accent-color);
+}
+
+.todo-item.overdue .todo-date {
+  color: var(--accent-color);
+}
+
+.time-remaining {
+  color: var(--text-secondary);
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.todo-item.overdue .time-remaining {
+  color: var(--accent-color);
+  background-color: rgba(255, 71, 87, 0.1);
+}
+
+/* Animation untuk overdue badge */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.overdue-badge {
+  animation: pulse 2s infinite;
+}
+
+/* Profile Styles */
+.profile-container {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.profile-info h1 {
+  color: var(--text-primary);
+  font-size: 32px;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.current-date {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin: 0;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.add-project-btn {
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-project-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 74, 255, 0.2);
+}
+
+.profile-stats {
+  display: flex;
+  gap: 40px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat-value {
+  color: var(--text-primary);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .profile-stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .stat-item {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+/* Modern Form Styles */
+.modern-form-container {
+  margin-bottom: 30px;
+}
+
+.add-task-button {
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(74, 74, 255, 0.1);
+  border: 2px dashed var(--primary-color);
+  border-radius: 12px;
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-task-button:hover {
+  background-color: rgba(74, 74, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.modern-todo-form {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-header h3 {
+  color: var(--text-primary);
+  margin: 0;
+  font-size: 20px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.close-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.form-content {
+  margin-bottom: 24px;
+}
+
+.modern-input {
+  width: 100%;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 16px;
+  resize: vertical;
+  min-height: 100px;
+  transition: all 0.3s;
+}
+
+.modern-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.form-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-icon {
+  color: var(--text-secondary);
+  font-size: 20px;
+}
+
+.modern-datepicker {
+  flex: 1;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.priority-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.priority-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--priority-bg);
+  color: var(--priority-color);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.priority-button.active {
+  background-color: var(--priority-color);
+  color: white;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cancel-button {
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+}
+
+.submit-button {
+  padding: 12px 24px;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 74, 255, 0.3);
+}
+
+/* Custom DatePicker Styles */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker {
+  background-color: var(--card-bg) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.react-datepicker__header {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day {
+  color: var(--text-primary) !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.react-datepicker__day--selected {
+  background-color: var(--primary-color) !important;
+}
+
+/* Profile styles update */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(74, 74, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-icon {
+  font-size: 30px;
+  color: var(--primary-color);
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.greeting {
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.user-name {
+  color: var(--text-primary);
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.theme-toggle {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(15deg);
+}
+
+.profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Update responsive styles */
+@media (max-width: 768px) {
+  .user-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .profile-actions {
+    margin-top: 20px;
+  }
+}
+
+/* Name editing styles */
+.name-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.edit-btn:hover {
+  color: var(--primary-color);
+  background-color: rgba(74, 74, 255, 0.1);
+}
+
+.edit-name-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.name-input {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text-primary);
+  font-size: 24px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.name-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.save-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #3939CC;
+}
+
+.cancel-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+}
+
+.cancel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 480px) {
+  /* Container adjustments */
+  .app-container {
+    padding: 15px;
+  }
+
+  /* Profile mobile adjustments */
+  .profile-container {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .user-info {
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  .avatar-icon {
+    font-size: 24px;
+  }
+
+  .greeting {
+    font-size: 14px;
+  }
+
+  .user-name {
+    font-size: 22px;
+  }
+
+  .current-date {
+    font-size: 13px;
+  }
+
+  /* Stats mobile adjustments */
+  .profile-stats {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    flex: 1;
+    min-width: calc(50% - 10px);
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  /* Profile actions mobile adjustments */
+  .profile-actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .add-project-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .theme-toggle {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  /* Form mobile adjustments */
+  .modern-todo-form {
+    padding: 16px;
+  }
+
+  .form-header h3 {
+    font-size: 18px;
+  }
+
+  .modern-input {
+    padding: 12px;
+    font-size: 14px;
+    min-height: 80px;
+  }
+
+  .control-group {
+    gap: 8px;
+  }
+
+  .control-icon {
+    font-size: 16px;
+  }
+
+  .priority-button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  /* Todo items mobile adjustments */
+  .todo-item {
+    padding: 12px;
+  }
+
+  .todo-text {
+    font-size: 14px;
+  }
+
+  .todo-meta {
+    font-size: 11px;
+  }
+
+  .priority-badge {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+
+  .todo-date {
+    font-size: 11px;
+  }
+
+  /* Name editing mobile adjustments */
+  .name-input {
+    font-size: 18px;
+    padding: 6px 10px;
+  }
+
+  .edit-actions {
+    gap: 6px;
+  }
+
+  .save-btn,
+  .cancel-btn {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  .edit-btn {
+    padding: 4px;
+    font-size: 14px;
+  }
+
+  /* DatePicker mobile adjustments */
+  .modern-datepicker {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  /* Add task button mobile adjustment */
+  .add-task-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Update profile actions untuk mobile */
+  .profile-actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .theme-toggle {
+    width: 45px;
+    height: 45px;
+    padding: 12px;
+    font-size: 20px;
+    background: rgba(74, 74, 255, 0.1);
+  }
+
+  .add-project-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 24px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  /* Update profile header layout */
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .current-date {
+    text-align: center;
+  }
+}
+
+/* Additional tablet adjustments if needed */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .profile-stats {
+    gap: 30px;
+  }
+
+  .stat-item {
+    min-width: calc(33.33% - 20px);
+  }
+
+  .add-project-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
